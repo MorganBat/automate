@@ -9,7 +9,8 @@ nextCells = []
 for x in range(WIDTH):
     column = [] # Create a new column
     for y in range(HEIGHT):
-        if random.randint(0,1) == 0:
+        # if random.randint(0,1) == 0:
+        if (x, y) in ((1, 0), (2, 1), (0, 2), (1, 2), (2, 2)):
             column.append('#') # Add a living cell
         else:
             column.append(' ') # Add a dead cell
@@ -24,7 +25,7 @@ while True: # Main Program Loop
             print(currentCells[x][y], end = '') # Print the # or space.
         print() # Print a newline at the end of each row
 
-    Calculate the next step's cells based on the current steps cells:
+    # Calculate the next step's cells based on the current steps cells:
     for x in range(WIDTH):
         for y in range(HEIGHT):
             # Get neighbouring coordinates:
@@ -65,3 +66,4 @@ while True: # Main Program Loop
                 # Everything else dies or stays dead:
                 nextCells[x][y] = ' '
     time.sleep(1) # Add a 1-second pause to reduce flickering
+
